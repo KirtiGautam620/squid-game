@@ -1,0 +1,248 @@
+
+html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; 
+  }
+  .loader {
+    --path: #ffffff;
+    --duration: 3s;
+    width: 184px;
+    height: 144px;
+    position: relative;
+  }
+  .loader svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .loader svg rect,
+  .loader svg polygon,
+  .loader svg circle {
+    fill: none;
+    stroke: var(--path);
+    stroke-width: 10px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+  .loader svg polygon {
+    stroke-dasharray: 145 76 145 76;
+    stroke-dashoffset: 0;
+    animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  }
+ 
+  .loader svg rect {
+    stroke-dasharray: 192 64 192 64;
+    stroke-dashoffset: 0;
+    animation: pathRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  }
+  .loader svg circle {
+    stroke-dasharray: 150 50 150 50;
+    stroke-dashoffset: 75;
+    animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  }
+  .loader.circle {
+    --path: #ff0066;
+  }
+  .loader.triangle {
+    --path: #ff0066;
+  }
+  .loader.rect {
+    --path: #ff0066;
+  }
+  @keyframes pathTriangle {
+    33% {
+      stroke-dashoffset: 74;
+    }
+    66% {
+      stroke-dashoffset: 147;
+    }
+    100% {
+      stroke-dashoffset: 221;
+    }
+  }
+  @keyframes pathRect {
+    25% {
+      stroke-dashoffset: 64;
+    }
+    50% {
+      stroke-dashoffset: 128;
+    }
+    75% {
+      stroke-dashoffset: 192;
+    }
+    100% {
+      stroke-dashoffset: 256;
+    }
+  }
+  @keyframes pathCircle {
+    25% {
+      stroke-dashoffset: 125;
+    }
+    50% {
+      stroke-dashoffset: 175;
+    }
+    75% {
+      stroke-dashoffset: 225;
+    }
+    100% {
+      stroke-dashoffset: 275;
+    }
+  }
+/* 
+  .btn{
+    padding: 15px 40px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    position: relative;
+    color: white;
+    z-index: 0;
+    cursor: pointer;
+   
+  }
+
+  .btn::after{
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f0106a;
+    border-radius: 12px;
+  }
+  .btn::before{
+    content: '';
+    background: linear-gradient(
+      45deg,
+      #341785,
+      #760e30,
+      #f386b2,
+      #a90ac8,
+      #e30960,
+      #d34c12,
+      #f386b2,
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    border-radius: 12px;
+    animation: gradient 5s linear infinite;
+    z-index: -1;
+    filter: blur(10px);
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+  }
+  @keyframes glowing {
+    0% {
+        background-position:0 0 ;
+    }
+    50% {
+        background-position:400% 0 ;
+    }
+    100% {
+        background-position:0 0 ;
+    }
+  }
+  .btn:hover::before{
+    opacity: 1;
+
+  }
+  .btn:active::after{
+    background: transparent;
+  }
+  .btn:active{
+    color: #060606;
+    font-weight: bold;
+  } */
+
+  .btn {
+    padding: 15px 40px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    position: relative;
+    color: white;
+    z-index: 0;
+    cursor: pointer;
+    background: transparent; /* Ensure the button background is transparent */
+}
+
+.btn::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f0106a;
+    border-radius: 12px;
+}
+
+.btn::before {
+    content: '';
+    background: linear-gradient(
+        45deg,
+        #341785,
+        #760e30,
+        #f386b2,
+        #a90ac8,
+        #e30960,
+        #d34c12,
+        #f386b2
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    border-radius: 12px;
+    z-index: -1;
+    filter: blur(10px);
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+    animation: glowing 5s linear infinite; /* Apply the animation here */
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.btn:hover::before {
+    opacity: 1;
+}
+
+.btn:active::after {
+    background: transparent;
+}
+
+.btn:active {
+    color: #060606;
+    font-weight: bold;
+}
